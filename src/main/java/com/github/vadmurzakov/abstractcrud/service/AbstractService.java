@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public abstract class AbstractService<E extends Model, R extends EntityRepository<E>> implements EntityService<E> {
 	@Autowired
-	private R repository;
+	protected R repository;
 
 	@Override
 	public E save(E entity) {

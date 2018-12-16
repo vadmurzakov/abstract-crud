@@ -17,7 +17,7 @@ import java.io.Serializable;
 public abstract class AbstractController<E extends Model, S extends EntityService<E>> {
 
 	@Autowired
-	private S service;
+	protected S service;
 
 	@PostMapping
 	public E save(@RequestBody E entity) {
