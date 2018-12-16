@@ -1,7 +1,6 @@
 package com.github.vadmurzakov.abstractcrud.controller;
 
 import com.github.vadmurzakov.abstractcrud.exception.EntityNotFoundException;
-import com.github.vadmurzakov.abstractcrud.exception.EntitySaveException;
 import com.github.vadmurzakov.abstractcrud.model.Model;
 import com.github.vadmurzakov.abstractcrud.service.EntityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +20,12 @@ public abstract class AbstractController<E extends Model, S extends EntityServic
 
 	@PostMapping
 	public E save(@RequestBody E entity) {
-		return service.save(entity).orElseThrow(EntitySaveException::new);
+		return service.save(entity);
 	}
 
 	@PutMapping
 	public E update(@RequestBody E entity) {
-		return service.update(entity).orElseThrow(EntitySaveException::new);
+		return service.update(entity);
 	}
 
 	@GetMapping("/{id}")
